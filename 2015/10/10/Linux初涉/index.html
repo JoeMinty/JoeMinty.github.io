@@ -43,7 +43,7 @@
 <meta property="og:site_name" content="乌托邦">
 <meta property="og:description" content="说的通俗点，那是为了别人看你的眼光透着羡慕。我想每一个程序员都想像电影里的黑客一样，在命令行中噼里啪啦敲一大丢你看不懂的命令，然后，稀里哗啦的显示一大丢你貌似看得懂的东西。说的文艺点，那是为了梦想，为了去圆当初吹过的牛逼，就要花一些别人睡觉的日日夜夜去苦逼的”望闻问切”,有时候，目的也许只是为了得到一个肯定，证明自己也是可以做到别人能做到的事，达到别人曾达到的高度。
 当初从瘟都死机子，到Mac机，">
-<meta property="og:updated_time" content="2015-10-10T04:22:09.445Z">
+<meta property="og:updated_time" content="2015-10-10T04:26:48.585Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux初涉">
 <meta name="twitter:description" content="说的通俗点，那是为了别人看你的眼光透着羡慕。我想每一个程序员都想像电影里的黑客一样，在命令行中噼里啪啦敲一大丢你看不懂的命令，然后，稀里哗啦的显示一大丢你貌似看得懂的东西。说的文艺点，那是为了梦想，为了去圆当初吹过的牛逼，就要花一些别人睡觉的日日夜夜去苦逼的”望闻问切”,有时候，目的也许只是为了得到一个肯定，证明自己也是可以做到别人能做到的事，达到别人曾达到的高度。
@@ -251,7 +251,7 @@
 </code></pre><p>分页显示内容<br>（空格）或f   显示下一页<br>Enter       显示下一行<br>Q或q       退出</p>
 <h3 id="head">head</h3><p>查看文件前几行<br>    head -num [文件名]<br>    head -20 /etcrvices</p>
 <h3 id="tail">tail</h3><pre><code><span class="keyword">tail</span> -num<span class="sqbracket"> [文件名]</span>
-</code></pre><p>-f 动态显示<br></p>
+</code></pre><p>-f 动态显示</p>
 <h3 id="ln_（link）_产生软链接">ln （link） 产生软链接</h3><pre><code>ln -s [<span class="link_label">源文件</span>][<span class="link_reference">目标文件</span>]
 </code></pre><p>软链接文件的权限 lrwxrwxrwx 并有一个箭头指向源文件<br>    su – 用户名  切换用户</p>
 <h3 id="添加用户">添加用户</h3><pre><code><span class="title">useradd</span>  xxx
@@ -261,7 +261,7 @@ passwd  xxx
 <span class="keyword">which</span>  <span class="keyword">ls</span>
 </code></pre><h3 id="whereis">whereis</h3><pre><code><span class="title">whereis</span> mysql
 </code></pre><h3 id="find">find</h3><pre><code>find [<span class="link_label">path</span>][<span class="link_reference">options</span>][<span class="link_label">expression</span>]
-</code></pre><p>find命令的作用是在目录中搜索文件，它的使用权限是所有用户。<br><br>    find / -name httpd.conf<br>    find /etc -name ‘<em>ttpd</em>‘<br>-name 文件名字<br>-size 文件大小</p>
+</code></pre><p>find命令的作用是在目录中搜索文件，它的使用权限是所有用户。<br>    find / -name httpd.conf<br>    find /etc -name ‘<em>ttpd</em>‘<br>-name 文件名字<br>-size 文件大小</p>
 <ul>
 <li>超过xxx大小的。单位是数据库，512字节 = 0.5kb</li>
 </ul>
@@ -282,12 +282,7 @@ passwd  xxx
 <h3 id="ifconfig">ifconfig</h3><p>-a 显示所有网卡信息</p>
 <h3 id="history">history</h3><p>history  显示命令列表 上下箭头查看<br>(!序号)  执行序号的命令<br>ctrl+l 清屏     ctrl + u 删除光标前所有字符</p>
 <h3 id="别名">别名</h3><p>命名别名<br>    alias 命令别名 = 原命令<br>    alias copy = cp<br>    alias drm = “rm –rf”<br>干掉别名<br>    unalias 别名名称<br>    unalias drm</p>
-<h3 id="输入/输出重定向">输入/输出重定向</h3><p>0 标准输入(STDIN)<br>1 标准输出(STDOUT)<br>2 标准错误输出(STDERR)<br>输出重定向（显示不在屏幕，可以显示在文件中）<br>    ls –l /tmp &gt; /tmp.msg</p>
-<blockquote>
-<blockquote>
-<p>追加</p>
-</blockquote>
-</blockquote>
+<h3 id="输入/输出重定向">输入/输出重定向</h3><p>0 标准输入(STDIN)<br>1 标准输出(STDOUT)<br>2 标准错误输出(STDERR)<br>输出重定向（显示不在屏幕，可以显示在文件中）<br>    ls –l /tmp &gt; /tmp.msg<br>“&gt;&gt;”追加</p>
 <p>输入重定向<br>    wall &lt; /etc/greet.txt<br>错误输出重定向<br>    cp –R  /usr  /backup/usr.bak  2&gt;  /bak.error</p>
 <h3 id="管道符">管道符</h3><pre><code><span class="keyword">ls</span> –<span class="keyword">l</span> /etc | grep yum | wc –<span class="keyword">l</span>
 </code></pre><p>结合上述<br>    write &lt; /home/joe/hello.txt &amp;&amp; rm /home/joe/hello.txt</p>

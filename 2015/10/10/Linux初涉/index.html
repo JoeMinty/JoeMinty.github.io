@@ -43,7 +43,7 @@
 <meta property="og:site_name" content="乌托邦">
 <meta property="og:description" content="说的通俗点，那是为了别人看你的眼光透着羡慕。我想每一个程序员都想像电影里的黑客一样，在命令行中噼里啪啦敲一大丢你看不懂的命令，然后，稀里哗啦的显示一大丢你貌似看得懂的东西。说的文艺点，那是为了梦想，为了去圆当初吹过的牛逼，就要花一些别人睡觉的日日夜夜去苦逼的”望闻问切”,有时候，目的也许只是为了得到一个肯定，证明自己也是可以做到别人能做到的事，达到别人曾达到的高度。
 当初从瘟都死机子，到Mac机，">
-<meta property="og:updated_time" content="2015-10-10T04:16:07.182Z">
+<meta property="og:updated_time" content="2015-10-10T04:22:09.445Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux初涉">
 <meta name="twitter:description" content="说的通俗点，那是为了别人看你的眼光透着羡慕。我想每一个程序员都想像电影里的黑客一样，在命令行中噼里啪啦敲一大丢你看不懂的命令，然后，稀里哗啦的显示一大丢你貌似看得懂的东西。说的文艺点，那是为了梦想，为了去圆当初吹过的牛逼，就要花一些别人睡觉的日日夜夜去苦逼的”望闻问切”,有时候，目的也许只是为了得到一个肯定，证明自己也是可以做到别人能做到的事，达到别人曾达到的高度。
@@ -282,22 +282,18 @@ passwd  xxx
 <h3 id="ifconfig">ifconfig</h3><p>-a 显示所有网卡信息</p>
 <h3 id="history">history</h3><p>history  显示命令列表 上下箭头查看<br>(!序号)  执行序号的命令<br>ctrl+l 清屏     ctrl + u 删除光标前所有字符</p>
 <h3 id="别名">别名</h3><p>命名别名<br>    alias 命令别名 = 原命令<br>    alias copy = cp<br>    alias drm = “rm –rf”<br>干掉别名<br>    unalias 别名名称<br>    unalias drm</p>
-<h3 id="输入/输出重定向">输入/输出重定向</h3><p>0 标准输入(STDIN)<br>1 标准输出(STDOUT)<br>2 标准错误输出(STDERR)</p>
-<p>输出重定向（显示不在屏幕，可以显示在文件中）<br>    ls –l /tmp &gt; /tmp.msg</p>
+<h3 id="输入/输出重定向">输入/输出重定向</h3><p>0 标准输入(STDIN)<br>1 标准输出(STDOUT)<br>2 标准错误输出(STDERR)<br>输出重定向（显示不在屏幕，可以显示在文件中）<br>    ls –l /tmp &gt; /tmp.msg</p>
 <blockquote>
 <blockquote>
 <p>追加</p>
 </blockquote>
 </blockquote>
-<p>输入重定向<br>    wall &lt; /etc/greet.txt</p>
-<p>错误输出重定向<br>    cp –R  /usr  /backup/usr.bak  2&gt;  /bak.error</p>
+<p>输入重定向<br>    wall &lt; /etc/greet.txt<br>错误输出重定向<br>    cp –R  /usr  /backup/usr.bak  2&gt;  /bak.error</p>
 <h3 id="管道符">管道符</h3><pre><code><span class="keyword">ls</span> –<span class="keyword">l</span> /etc | grep yum | wc –<span class="keyword">l</span>
 </code></pre><p>结合上述<br>    write &lt; /home/joe/hello.txt &amp;&amp; rm /home/joe/hello.txt</p>
-<h3 id="ps_进程管理">ps 进程管理</h3><p>-a 显示所有用户的进程<br>-u 显示用户名和启动时间<br>-x 显示没有控制终端的进程<br>-e 显示所有进程<br>-l 长格式显示<br>-w 宽行显示，可以使用多个w进行加宽显示</p>
-<p>查看所有用户执行的进程的详细信息<br>    ps –le  或者 ps –aux<br>排序<br>    ps –le – sort pid<br>查看进程树，父子进程<br>    pstree | more</p>
+<h3 id="ps_进程管理">ps 进程管理</h3><p>-a 显示所有用户的进程<br>-u 显示用户名和启动时间<br>-x 显示没有控制终端的进程<br>-e 显示所有进程<br>-l 长格式显示<br>-w 宽行显示，可以使用多个w进行加宽显示<br>查看所有用户执行的进程的详细信息<br>    ps –le  或者 ps –aux<br>排序<br>    ps –le – sort pid<br>查看进程树，父子进程<br>    pstree | more</p>
 <h3 id="kill_关闭进程">kill 关闭进程</h3><pre><code><span class="built_in">kill</span> 进程号
-</code></pre><p>（强行关闭） ==stop<br>    kill -9 进程号<br>结束所有进程<br><br>    killall<br>（重启） ==restart<br>    kill -1 进程号  </p>
-<p>以apache为列，查询，重启，关闭<br>    pgrep httpd<br>    kill -1 <code>pgrep httpd</code><br>    pkill httpd</p>
+</code></pre><p>（强行关闭） ==stop<br>    kill -9 进程号<br>结束所有进程<br>    killall<br>（重启） ==restart<br>    kill -1 进程号<br>以apache为列，查询，重启，关闭<br>    pgrep httpd<br>    kill -1 <code>pgrep httpd</code><br>    pkill httpd</p>
 </span>
       
     </div>

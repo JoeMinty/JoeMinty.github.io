@@ -43,7 +43,7 @@
 <meta property="og:site_name" content="乌托邦">
 <meta property="og:description" content="说的通俗点，那是为了别人看你的眼光透着羡慕。我想每一个程序员都想像电影里的黑客一样，在命令行中噼里啪啦敲一大丢你看不懂的命令，然后，稀里哗啦的显示一大丢你貌似看得懂的东西。说的文艺点，那是为了梦想，为了去圆当初吹过的牛逼，就要花一些别人睡觉的日日夜夜去苦逼的”望闻问切”,有时候，目的也许只是为了得到一个肯定，证明自己也是可以做到别人能做到的事，达到别人曾达到的高度。
 当初从瘟都死机子，到Mac机，">
-<meta property="og:updated_time" content="2015-10-10T04:12:15.509Z">
+<meta property="og:updated_time" content="2015-10-10T04:16:07.182Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux初涉">
 <meta name="twitter:description" content="说的通俗点，那是为了别人看你的眼光透着羡慕。我想每一个程序员都想像电影里的黑客一样，在命令行中噼里啪啦敲一大丢你看不懂的命令，然后，稀里哗啦的显示一大丢你貌似看得懂的东西。说的文艺点，那是为了梦想，为了去圆当初吹过的牛逼，就要花一些别人睡觉的日日夜夜去苦逼的”望闻问切”,有时候，目的也许只是为了得到一个肯定，证明自己也是可以做到别人能做到的事，达到别人曾达到的高度。
@@ -266,9 +266,10 @@ passwd  xxx
 <li>超过xxx大小的。单位是数据库，512字节 = 0.5kb</li>
 </ul>
 <ul>
-<li>小于<br>100M = 204800<br>-user 根据文件所有者查找<br>以天/分钟为单位<br>-ctime    -cmin<br>-atime    -amin<br>-mtime    -mmin<br>c-change改变，表示文件的属性被修改过（所属组，所有者权限）<br>a-access访问，<br>m-modify修改，文件内容被修改过<br>-之内<br>+超过<br>find /etc –mmin -120<br>在etc下找出两小时内内容被修改过的文件<h2 id="连接符">连接符</h2>-a  and逻辑与<br>-o  or逻辑或<br>-exec  跟上命令 {} \;<br>-ok 询问确认<br>{}表示find查询的结果    \表示转义符   ;表示结束<br>?匹配单个字符<br><em>匹配任意字符<br>find /etc –name init</em><br>find /etc –name init???<h3 id="locate">locate</h3>（只在系统文件目录的数据库，配合updatedb查找）<br>locate services <h3 id="grep">grep</h3>grep [指定字符串][源文件]<br>在文件中搜索字符串匹配的行并输出<br>grep ftp /etcrvices<h3 id="帮助命令_man">帮助命令  man</h3>man [命令或配置文件]<br>查看ls命令用法<br>man ls<br>查看文件帮助，只能写配置文件的帮助<br>man services<br>info和man一样<h2 id="压缩解压缩">压缩解压缩</h2><h3 id="tar">tar</h3>tar [主选项+辅选项] 文件或目录<br>-v 详细报告tar处理的文件信息。如无此选项，tar不报告文件信息。<br>-c 创建新的档案文件。如果用户想备份一个目录或是一些文件，就要选择这个选项。<br>-f 使用档案文件或设备，这个选项通常是必选的。<br>-z 用gzip来压缩/解压缩文件，加上该选项后可以将档案文件进行压缩，但还原时也一定要使用该选项进行解压缩。</li>
+<li>小于<br>100M = 204800<br>-user 根据文件所有者查找<br>以天/分钟为单位<br>-ctime    -cmin<br>-atime    -amin<br>-mtime    -mmin<br>c-change改变，表示文件的属性被修改过（所属组，所有者权限）<br>a-access访问，<br>m-modify修改，文件内容被修改过<br>-之内<br>+超过<br>find /etc –mmin -120<br>在etc下找出两小时内内容被修改过的文件<h2 id="连接符">连接符</h2>-a  and逻辑与<br>-o  or逻辑或<br>-exec  跟上命令 {} \;<br>-ok 询问确认<br>{}表示find查询的结果    \表示转义符   ;表示结束<br>?匹配单个字符<br><em>匹配任意字符<br>find /etc –name init</em><br>find /etc –name init???<h3 id="locate">locate</h3>（只在系统文件目录的数据库，配合updatedb查找）<br>locate services <h3 id="grep">grep</h3>grep [指定字符串][源文件]<br>在文件中搜索字符串匹配的行并输出<br>grep ftp /etcrvices<h3 id="帮助命令_man">帮助命令  man</h3>man [命令或配置文件]<br>查看ls命令用法<br>man ls<br>查看文件帮助，只能写配置文件的帮助<br>man services<br>info和man一样<h2 id="压缩解压缩">压缩解压缩</h2><h3 id="tar">tar</h3>tar [主选项+辅选项] 文件或目录</li>
 </ul>
-<p>解包<br>    tar xvf FileName.tar<br>打包<br>    tar cvf FileName.tar DirName<br>打包后的后缀是.tar</p>
+<p>-v 详细报告tar处理的文件信息。如无此选项，tar不报告文件信息。<br>-c 创建新的档案文件。如果用户想备份一个目录或是一些文件，就要选择这个选项。<br>-f 使用档案文件或设备，这个选项通常是必选的。<br>-z 用gzip来压缩/解压缩文件，加上该选项后可以将档案文件进行压缩，但还原时也一定要使用该选项进行解压缩。</p>
+<p>解包<br>        tar xvf FileName.tar<br>打包<br>        tar cvf FileName.tar DirName<br>打包后的后缀是.tar</p>
 <p>解压<br>    tar zxvf FileName.tar.gz<br>压缩<br>    tar zcvf FileName.tar.gz DirName<br>打包后的后缀是.tar.gz</p>
 <h3 id="gzip">gzip</h3><pre><code><span class="keyword">gzip</span> 选项<span class="sqbracket"> [文件]</span>
 </code></pre><p>压缩文件，压缩后的文件格式是.gz，有两个特点<br>1.只能压缩文件，不能压缩目录<br>2.不保留原文件<br>gunzip 或者gzip -d 解压缩<br>file xxx 可查看xxx是什么文件类型</p>

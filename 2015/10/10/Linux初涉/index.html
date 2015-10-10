@@ -43,7 +43,7 @@
 <meta property="og:site_name" content="乌托邦">
 <meta property="og:description" content="说的通俗点，那是为了别人看你的眼光透着羡慕。我想每一个程序员都想像电影里的黑客一样，在命令行中噼里啪啦敲一大丢你看不懂的命令，然后，稀里哗啦的显示一大丢你貌似看得懂的东西。说的文艺点，那是为了梦想，为了去圆当初吹过的牛逼，就要花一些别人睡觉的日日夜夜去苦逼的”望闻问切”,有时候，目的也许只是为了得到一个肯定，证明自己也是可以做到别人能做到的事，达到别人曾达到的高度。
 当初从瘟都死机子，到Mac机，">
-<meta property="og:updated_time" content="2015-10-10T04:53:31.507Z">
+<meta property="og:updated_time" content="2015-10-10T05:02:57.147Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux初涉">
 <meta name="twitter:description" content="说的通俗点，那是为了别人看你的眼光透着羡慕。我想每一个程序员都想像电影里的黑客一样，在命令行中噼里啪啦敲一大丢你看不懂的命令，然后，稀里哗啦的显示一大丢你貌似看得懂的东西。说的文艺点，那是为了梦想，为了去圆当初吹过的牛逼，就要花一些别人睡觉的日日夜夜去苦逼的”望闻问切”,有时候，目的也许只是为了得到一个肯定，证明自己也是可以做到别人能做到的事，达到别人曾达到的高度。
@@ -263,35 +263,87 @@ passwd  xxx
 <span class="keyword">which</span>  <span class="keyword">ls</span>
 </code></pre><h3 id="whereis">whereis</h3><pre><code><span class="title">whereis</span> mysql
 </code></pre><h3 id="find">find</h3><pre><code>find [<span class="link_label">path</span>][<span class="link_reference">options</span>][<span class="link_label">expression</span>]
-</code></pre><p>find命令的作用是在目录中搜索文件，它的使用权限是所有用户。<br>    find / -name httpd.conf<br>    find /etc -name ‘<em>ttpd</em>‘<br>-name 文件名字<br>-size 文件大小</p>
+</code></pre><p>find命令的作用是在目录中搜索文件，它的使用权限是所有用户。</p>
+<pre><code><span class="keyword">find</span> / -name httpd.<span class="keyword">conf</span>
+<span class="keyword">find</span> /etc -name <span class="string">'*ttpd*'</span>
+</code></pre><p>-name 文件名字<br>-size 文件大小</p>
 <ul>
 <li>超过xxx大小的。单位是数据库，512字节 = 0.5kb</li>
 </ul>
 <ul>
-<li>小于<br>100M = 204800<br>-user 根据文件所有者查找<br>以天/分钟为单位<br>-ctime    -cmin<br>-atime    -amin<br>-mtime    -mmin<br>c-change改变，表示文件的属性被修改过（所属组，所有者权限）<br>a-access访问，<br>m-modify修改，文件内容被修改过<br>-之内<br>+超过<br>find /etc –mmin -120<br>在etc下找出两小时内内容被修改过的文件<h2 id="连接符">连接符</h2>-a  and逻辑与<br>-o  or逻辑或<br>-exec  跟上命令 {} \<br>-ok 询问确认<br>{}表示find查询的结果    \表示转义符   ;表示结束<br>?匹配单个字符<br><em>匹配任意字符<br>find /etc –name init</em><br>find /etc –name init???<h3 id="locate">locate</h3>（只在系统文件目录的数据库，配合updatedb查找）<br>locate services <h3 id="grep">grep</h3>grep [指定字符串][源文件]<br>在文件中搜索字符串匹配的行并输出<br>grep ftp /etcrvices<h3 id="帮助命令_man">帮助命令  man</h3>man [命令或配置文件]<br>查看ls命令用法<br>man ls<br>查看文件帮助，只能写配置文件的帮助<br>man services<br>info和man一样<h2 id="压缩解压缩">压缩解压缩</h2><h3 id="tar">tar</h3>tar [主选项+辅选项] 文件或目录</li>
+<li><p>小于<br>100M = 204800<br>-user 根据文件所有者查找<br>以天/分钟为单位<br>-ctime    -cmin<br>-atime    -amin<br>-mtime    -mmin<br>c-change改变，表示文件的属性被修改过（所属组，所有者权限）<br>a-access访问，<br>m-modify修改，文件内容被修改过<br>-之内<br>+超过</p>
+<p>find /etc –mmin -120<br>在etc下找出两小时内内容被修改过的文件</p>
+<h2 id="连接符">连接符</h2><p>-a  and逻辑与<br>-o  or逻辑或<br>-exec  跟上命令 {} \<br>-ok 询问确认<br>{}表示find查询的结果    \表示转义符   ;表示结束<br>?匹配单个字符<br>*匹配任意字符</p>
+<p>find /etc –name init*<br>find /etc –name init???</p>
+<h3 id="locate">locate</h3><p>（只在系统文件目录的数据库，配合updatedb查找）</p>
+<p>locate services </p>
+<h3 id="grep">grep</h3><p>grep [指定字符串][源文件]<br>在文件中搜索字符串匹配的行并输出</p>
+<p>grep ftp /etcrvices</p>
+<h3 id="帮助命令_man">帮助命令  man</h3><p>man [命令或配置文件]<br>查看ls命令用法</p>
+<p>man ls<br>查看文件帮助，只能写配置文件的帮助</p>
+<p>man services<br>info和man一样</p>
+<h2 id="压缩解压缩">压缩解压缩</h2><h3 id="tar">tar</h3><p>tar [主选项+辅选项] 文件或目录</p>
+</li>
 </ul>
 <p>-v 详细报告tar处理的文件信息。如无此选项，tar不报告文件信息。<br>-c 创建新的档案文件。如果用户想备份一个目录或是一些文件，就要选择这个选项。<br>-f 使用档案文件或设备，这个选项通常是必选的。<br>-z 用gzip来压缩/解压缩文件，加上该选项后可以将档案文件进行压缩，但还原时也一定要使用该选项进行解压缩。</p>
-<p>解包<br>        tar xvf FileName.tar<br>打包<br>        tar cvf FileName.tar DirName<br>打包后的后缀是.tar</p>
-<p>解压<br>    tar zxvf FileName.tar.gz<br>压缩<br>    tar zcvf FileName.tar.gz DirName<br>打包后的后缀是.tar.gz</p>
+<p>解包</p>
+<pre><code>tar xvf FileName<span class="class">.tar</span> 
+</code></pre><p>打包<br>        tar cvf FileName.tar DirName<br>打包后的后缀是.tar</p>
+<p>解压</p>
+<pre><code>tar zxvf FileName<span class="class">.tar</span><span class="class">.gz</span> 
+</code></pre><p>压缩<br>    tar zcvf FileName.tar.gz DirName<br>打包后的后缀是.tar.gz</p>
 <h3 id="gzip">gzip</h3><pre><code><span class="keyword">gzip</span> 选项<span class="sqbracket"> [文件]</span>
 </code></pre><p>压缩文件，压缩后的文件格式是.gz，有两个特点<br>1.只能压缩文件，不能压缩目录<br>2.不保留原文件<br>gunzip 或者gzip -d 解压缩<br>file xxx 可查看xxx是什么文件类型</p>
 <h3 id="zip">zip</h3><pre><code><span class="tag">zip</span> 选项<span class="attr_selector">[-r]</span> <span class="attr_selector">[压缩后文件]</span>
-</code></pre><p>压缩文件<br>    zip service.zip /etcrvices<br>压缩目录<br>    zip –r test.zip  /test</p>
-<p>解压缩 unzip 压缩文件或目录名字</p>
+</code></pre><p>压缩文件 </p>
+<pre><code><span class="keyword">zip</span> service.<span class="keyword">zip</span> /etcrvices
+</code></pre><p>压缩目录 </p>
+<pre><code><span class="keyword">zip</span> –r <span class="keyword">test</span>.<span class="keyword">zip</span>  /<span class="keyword">test</span>
+</code></pre><p>解压缩 unzip 压缩文件或目录名字</p>
 <h3 id="bzip2">bzip2</h3><pre><code><span class="tag">bzip2</span> 选项<span class="attr_selector">[-k]</span> <span class="attr_selector">[文件名称]</span>
-</code></pre><p>压缩文件，压缩后的后缀是.bz2<br>解压缩<br>    bunzip2 选项[-k] [压缩文件]<br>-k 是否保留原文件</p>
-<h2 id="网络通信指令">网络通信指令</h2><h3 id="ping">ping</h3><p>测试网络连通性<br>    ping [选项] IP地址<br>-c count ping 多少次</p>
+</code></pre><p>压缩文件，压缩后的后缀是.bz2<br>解压缩</p>
+<pre><code><span class="tag">bunzip2</span> 选项<span class="attr_selector">[-k]</span> <span class="attr_selector">[压缩文件]</span>
+</code></pre><p>-k 是否保留原文件</p>
+<h2 id="网络通信指令">网络通信指令</h2><h3 id="ping">ping</h3><p>测试网络连通性</p>
+<pre><code><span class="label">ping</span> [选项] <span class="literal">IP</span>地址 
+</code></pre><p>-c count ping 多少次</p>
 <h3 id="ifconfig">ifconfig</h3><p>-a 显示所有网卡信息</p>
 <h3 id="history">history</h3><p>history  显示命令列表 上下箭头查看<br>(!序号)  执行序号的命令<br>ctrl+l 清屏     ctrl + u 删除光标前所有字符</p>
-<h3 id="别名">别名</h3><p>命名别名<br>    alias 命令别名 = 原命令<br>    alias copy = cp<br>    alias drm = “rm –rf”<br>干掉别名<br>    unalias 别名名称<br>    unalias drm</p>
-<h3 id="输入/输出重定向">输入/输出重定向</h3><p>0 标准输入(STDIN)<br>1 标准输出(STDOUT)<br>2 标准错误输出(STDERR)<br>输出重定向（显示不在屏幕，可以显示在文件中）<br>    ls –l /tmp &gt; /tmp.msg<br>“&gt;&gt;”追加</p>
-<p>输入重定向<br>    wall &lt; /etc/greet.txt<br>错误输出重定向<br>    cp –R  /usr  /backup/usr.bak  2&gt;  /bak.error</p>
-<h3 id="管道符">管道符</h3><pre><code><span class="keyword">ls</span> –<span class="keyword">l</span> /etc | grep yum | wc –<span class="keyword">l</span>
-</code></pre><p>结合上述<br>    write &lt; /home/joe/hello.txt &amp;&amp; rm /home/joe/hello.txt</p>
-<h3 id="ps_进程管理">ps 进程管理</h3><p>-a 显示所有用户的进程<br>-u 显示用户名和启动时间<br>-x 显示没有控制终端的进程<br>-e 显示所有进程<br>-l 长格式显示<br>-w 宽行显示，可以使用多个w进行加宽显示<br>查看所有用户执行的进程的详细信息<br>    ps –le  或者 ps –aux<br>排序<br>    ps –le – sort pid<br>查看进程树，父子进程<br>    pstree | more</p>
-<h3 id="kill_关闭进程">kill 关闭进程</h3><pre><code><span class="built_in">kill</span> 进程号
-</code></pre><p>（强行关闭） ==stop<br>    kill -9 进程号<br>结束所有进程<br>    killall<br>（重启） ==restart<br>    kill -1 进程号<br>以apache为列，查询，重启，关闭<br>    pgrep httpd<br>    kill -1 <code>pgrep httpd</code><br>    pkill httpd</p>
-</span>
+<h3 id="别名">别名</h3><p>命名别名</p>
+<pre><code><span class="keyword">alias</span> 命令别名 = 原命令 
+<span class="keyword">alias</span> <span class="title">copy</span> = cp
+<span class="keyword">alias</span> <span class="title">drm</span> = <span class="string">"rm –rf"</span> 
+</code></pre><p>干掉别名</p>
+<pre><code><span class="built_in">unalias</span> 别名名称
+<span class="built_in">unalias</span> drm
+</code></pre><h3 id="输入/输出重定向">输入/输出重定向</h3><p>0 标准输入(STDIN)<br>1 标准输出(STDOUT)<br>2 标准错误输出(STDERR)<br>输出重定向（显示不在屏幕，可以显示在文件中）</p>
+<pre><code><span class="keyword">ls</span> –<span class="keyword">l</span> /tmp &gt; /tmp.msg
+</code></pre><p>“&gt;&gt;”追加</p>
+<p>输入重定向</p>
+<pre><code>wall &lt; <span class="regexp">/etc/greet</span>.txt
+</code></pre><p>错误输出重定向</p>
+<pre><code>cp –R  <span class="regexp">/usr  /</span>backup<span class="regexp">/usr.bak  2&gt;  /</span>bak.error
+</code></pre><h3 id="管道符">管道符</h3><pre><code><span class="keyword">ls</span> –<span class="keyword">l</span> /etc | grep yum | wc –<span class="keyword">l</span>
+</code></pre><p>结合上述</p>
+<pre><code><span class="keyword">write</span> &lt; <span class="regexp">/home/</span>joe<span class="regexp">/hello.txt &amp;&amp; rm /</span>home<span class="regexp">/joe/</span>hello.txt
+</code></pre><h3 id="ps_进程管理">ps 进程管理</h3><p>-a 显示所有用户的进程<br>-u 显示用户名和启动时间<br>-x 显示没有控制终端的进程<br>-e 显示所有进程<br>-l 长格式显示<br>-w 宽行显示，可以使用多个w进行加宽显示<br>查看所有用户执行的进程的详细信息</p>
+<pre><code><span class="keyword">ps</span> –<span class="keyword">le</span>  或者 <span class="keyword">ps</span> –aux  
+</code></pre><p>排序</p>
+<pre><code><span class="keyword">ps</span> –<span class="keyword">le</span> – <span class="built_in">sort</span> pid  
+</code></pre><p>查看进程树，父子进程</p>
+<pre><code>pstree <span class="string">| more</span>
+</code></pre><h3 id="kill_关闭进程">kill 关闭进程</h3><pre><code><span class="built_in">kill</span> 进程号
+</code></pre><p>（强行关闭） ==stop</p>
+<pre><code><span class="built_in">kill</span> -<span class="number">9</span> 进程号  
+</code></pre><p>结束所有进程</p>
+<pre><code><span class="title">killall</span> 
+</code></pre><p>（重启） ==restart</p>
+<pre><code><span class="built_in">kill</span> -<span class="number">1</span> 进程号  
+</code></pre><p>以apache为列，查询，重启，关闭</p>
+<pre><code>pgrep httpd
+kill -<span class="number">1</span> <span class="escape">`p</span>grep httpd<span class="escape">` </span> 
+pkill httpd
+</code></pre></span>
       
     </div>
 

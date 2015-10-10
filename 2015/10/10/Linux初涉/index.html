@@ -43,7 +43,7 @@
 <meta property="og:site_name" content="乌托邦">
 <meta property="og:description" content="说的通俗点，那是为了别人看你的眼光透着羡慕。我想每一个程序员都想像电影里的黑客一样，在命令行中噼里啪啦敲一大丢你看不懂的命令，然后，稀里哗啦的显示一大丢你貌似看得懂的东西。说的文艺点，那是为了梦想，为了去圆当初吹过的牛逼，就要花一些别人睡觉的日日夜夜去苦逼的”望闻问切”,有时候，目的也许只是为了得到一个肯定，证明自己也是可以做到别人能做到的事，达到别人曾达到的高度。
 当初从瘟都死机子，到Mac机，">
-<meta property="og:updated_time" content="2015-10-10T04:49:22.954Z">
+<meta property="og:updated_time" content="2015-10-10T04:53:31.507Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux初涉">
 <meta name="twitter:description" content="说的通俗点，那是为了别人看你的眼光透着羡慕。我想每一个程序员都想像电影里的黑客一样，在命令行中噼里啪啦敲一大丢你看不懂的命令，然后，稀里哗啦的显示一大丢你貌似看得懂的东西。说的文艺点，那是为了梦想，为了去圆当初吹过的牛逼，就要花一些别人睡觉的日日夜夜去苦逼的”望闻问切”,有时候，目的也许只是为了得到一个肯定，证明自己也是可以做到别人能做到的事，达到别人曾达到的高度。
@@ -224,7 +224,7 @@
       
         <span itemprop="articleBody"><p>说的通俗点，那是为了别人看你的眼光透着羡慕。我想每一个程序员都想像电影里的黑客一样，在命令行中噼里啪啦敲一大丢你看不懂的命令，然后，稀里哗啦的显示一大丢你貌似看得懂的东西。说的文艺点，那是为了梦想，为了去圆当初吹过的牛逼，就要花一些别人睡觉的日日夜夜去苦逼的”望闻问切”,有时候，目的也许只是为了得到一个肯定，证明自己也是可以做到别人能做到的事，达到别人曾达到的高度。</p>
 <p>当初从瘟都死机子，到Mac机，然后初涉Linux，最后因为工作原因，又回到原点，操作系统孰强孰弱，每个人都有各自的看法。作为Mac和Chrome的狂热爱好者，就不提鄙陋之见了。好了，叨叨了一圈，直奔主题吧。</p>
-<h2 id="环境：Mac_Terminal_+_Linux_CentOS_+_Mou">环境：Mac Terminal + Linux CentOS + Mou</h2><p>#<br>/ 表示root<br>.  表示当前目录<br>.. 表示当前目录的父目录 </p>
+<h2 id="环境：Mac_Terminal_+_Linux_CentOS_+_Mou">环境：Mac Terminal + Linux CentOS + Mou</h2><p>/ 表示root<br>.  表示当前目录<br>.. 表示当前目录的父目录 </p>
 <h2 id="文件处理命令">文件处理命令</h2><h3 id="ls_(list)">ls (list)</h3><pre><code><span class="tag">ls</span> <span class="tag">-</span><span class="attr_selector">[ald]</span> <span class="attr_selector">[文件或目录名称]</span> 
 </code></pre><p>-a(all) 显示所有文件，包括隐藏文件<br>-l(long) 详细信息显示<br>-d(directory) 查看目录属性<br>ls -l 可简化为ll</p>
 <p>-rw-r–r–</p>
@@ -248,9 +248,11 @@
 <h3 id="cat_(contacenate_and_display_files)">cat  (contacenate and display files)</h3><pre><code><span class="keyword">cat</span><span class="sqbracket"> [文件名]</span>
 </code></pre><p>适合查看文件内容不是很长的文件</p>
 <h3 id="more">more</h3><pre><code><span class="tag">more</span> <span class="attr_selector">[文件名]</span>        
-</code></pre><p>分页显示内容<br>（空格）或f   显示下一页<br>Enter       显示下一行<br>Q或q       退出</p>
-<h3 id="head">head</h3><p>查看文件前几行<br>    head -num [文件名]<br>    head -20 /etcrvices</p>
-<h3 id="tail">tail</h3><pre><code><span class="keyword">tail</span> -num<span class="sqbracket"> [文件名]</span>
+</code></pre><p>分页显示内容<br>（空格）或f   显示下一页<br>Enter         显示下一行<br>Q或q          退出</p>
+<h3 id="head">head</h3><p>查看文件前几行</p>
+<pre><code><span class="keyword">head</span> -num<span class="sqbracket"> [文件名]</span>
+<span class="keyword">head</span> -20 /etcrvices
+</code></pre><h3 id="tail">tail</h3><pre><code><span class="keyword">tail</span> -num<span class="sqbracket"> [文件名]</span>
 </code></pre><p>-f 动态显示</p>
 <h3 id="ln_（link）_产生软链接">ln （link） 产生软链接</h3><pre><code>ln -s [<span class="link_label">源文件</span>][<span class="link_reference">目标文件</span>]
 </code></pre><p>软链接文件的权限 lrwxrwxrwx 并有一个箭头指向源文件<br>    su – 用户名  切换用户</p>

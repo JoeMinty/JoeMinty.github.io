@@ -41,7 +41,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/01/11/Linux下搭建Git服务器/index.html">
 <meta property="og:site_name" content="乌托邦">
 <meta property="og:description" content="春风十里，并不如梦想美丽。不怕路长，就怕心老。毕业后一直和一个学弟保持着联系，当时我当社团部长的时候，去招新，其实我的本意是想招他进来的，但是却忘了他的名字。一直都有点后悔。但是，生活却充满喜剧，后来我们通过代码又重新认识了，大学一直都和他合作写项目。现在我又萌生了一个念头，想写一个文艺的阅读网站。第一个版本托管就是想到了github，但是我们却都没有私人的仓库，所有就想到了在Linux下搭建Gi">
-<meta property="og:updated_time" content="2016-01-11T15:04:09.767Z">
+<meta property="og:updated_time" content="2016-01-11T15:42:17.512Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux下搭建Git服务器">
 <meta name="twitter:description" content="春风十里，并不如梦想美丽。不怕路长，就怕心老。毕业后一直和一个学弟保持着联系，当时我当社团部长的时候，去招新，其实我的本意是想招他进来的，但是却忘了他的名字。一直都有点后悔。但是，生活却充满喜剧，后来我们通过代码又重新认识了，大学一直都和他合作写项目。现在我又萌生了一个念头，想写一个文艺的阅读网站。第一个版本托管就是想到了github，但是我们却都没有私人的仓库，所有就想到了在Linux下搭建Gi">
@@ -235,8 +235,8 @@
 <pre><code>git config --global user<span class="class">.name</span> <span class="string">"your name"</span>
 git config --global user<span class="class">.email</span> <span class="string">"your email"</span>
 </code></pre><p>生成ssh key</p>
-<pre><code>ssh-keygen -t github_rsa -<span class="keyword">C</span> yourmail
-</code></pre><p>此时你进入到/Users/xxx/.ssh目录下，发现有了github_rsa,github_rsa.pub两个文件，你需要做的就是将后缀为.pub文件下的内容添加到个人github下的SSH Public Keys中。</p>
+<pre><code>ssh-keygen -t rsa -<span class="keyword">C</span> yourmail
+</code></pre><p>此时你进入到/Users/xxx/.ssh目录下，发现有了id_rsa,id_rsa.pub两个文件，你需要做的就是将后缀为.pub文件下的内容添加到个人github下的SSH Public Keys中。</p>
 <p>做完上述内容后可以通过下面的测试语句来验证是否链接成功。</p>
 <pre><code><span class="title">ssh</span> git<span class="variable">@github</span>.com
 </code></pre><p>如果出现Hi,xxx的提示，则证明成功了。</p>

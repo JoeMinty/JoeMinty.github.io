@@ -35,16 +35,22 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description">
+<meta name="description" content="&amp;gt;春风十里，并不如梦想美丽。不怕路长，就怕心老。
+
+毕业后一直和一个学弟保持着联系，当时我当社团部长的时候，去招新，其实我的本意是想招他进来的，但是却忘了他的名字。一直都有点后悔。但是，生活却充满喜剧，后来我们通过代码又重新认识了，大学一直都和他合作写项目。现在我又萌生了一个念头，想写一个文艺的阅读网站。第一个版本托管就是想到了github，但是我们却都没有私人的仓库，所有就想到了在Linu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux下搭建Git服务器">
 <meta property="og:url" content="http://yoursite.com/2016/01/11/Linux下搭建Git服务器/index.html">
 <meta property="og:site_name" content="乌托邦">
-<meta property="og:description">
-<meta property="og:updated_time" content="2016-01-11T10:46:35.871Z">
+<meta property="og:description" content="&amp;gt;春风十里，并不如梦想美丽。不怕路长，就怕心老。
+
+毕业后一直和一个学弟保持着联系，当时我当社团部长的时候，去招新，其实我的本意是想招他进来的，但是却忘了他的名字。一直都有点后悔。但是，生活却充满喜剧，后来我们通过代码又重新认识了，大学一直都和他合作写项目。现在我又萌生了一个念头，想写一个文艺的阅读网站。第一个版本托管就是想到了github，但是我们却都没有私人的仓库，所有就想到了在Linu">
+<meta property="og:updated_time" content="2016-01-11T14:38:38.119Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux下搭建Git服务器">
-<meta name="twitter:description">
+<meta name="twitter:description" content="&amp;gt;春风十里，并不如梦想美丽。不怕路长，就怕心老。
+
+毕业后一直和一个学弟保持着联系，当时我当社团部长的时候，去招新，其实我的本意是想招他进来的，但是却忘了他的名字。一直都有点后悔。但是，生活却充满喜剧，后来我们通过代码又重新认识了，大学一直都和他合作写项目。现在我又萌生了一个念头，想写一个文艺的阅读网站。第一个版本托管就是想到了github，但是我们却都没有私人的仓库，所有就想到了在Linu">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -219,7 +225,72 @@
       
 
       
-        <span itemprop="articleBody"></span>
+        <span itemprop="articleBody"><pre><code>&gt;春风十里，并不如梦想美丽。不怕路长，就怕心老。
+
+毕业后一直和一个学弟保持着联系，当时我当社团部长的时候，去招新，其实我的本意是想招他进来的，但是却忘了他的名字。一直都有点后悔。但是，生活却充满喜剧，后来我们通过代码又重新认识了，大学一直都和他合作写项目。现在我又萌生了一个念头，想写一个文艺的阅读网站。第一个版本托管就是想到了github，但是我们却都没有私人的仓库，所有就想到了在<span class="constant">Linux</span>下搭建<span class="constant">Git</span>服务器。
+
+下面就简单的描述下整个搭建过程。
+环境：<span class="constant">MAC</span>，<span class="constant">Linux</span>，<span class="constant">Win</span>
+<span class="constant">Git</span>我就不做介绍了，是一款分布式的版本控制系统。搭建的原理其实很简单，打个不恰当的比喻，可以看做将<span class="constant">Linux</span>作为中央处理器，然后不同的客户端向服务器更新或提交代码。
+
+在这里，我以<span class="constant">Mac</span>作为客户端为例。首先<span class="constant">Mac</span>上安装git，<span class="constant">Mac</span>上安装我主要通过<span class="constant">Homebrew</span>，<span class="constant">Homebrew</span>项目也托管在<span class="constant">Github</span>上，第一步安装<span class="constant">Homebrew</span>。（如果想要了解<span class="constant">Homebrew</span>的命令，以后我还会继续更新）。
+    ruby -e <span class="string">"$(curl -fsSL https://gist.github.com/raw/323731/install_homebrew.rb)"</span>
+
+然后可以通过下面的命令查看是否安装成功，如果有显示版本号的话就证明可以用brew命令安装了。
+    brew --version    
+
+现在就到了安装git的时候了，下载完git之后会给你打补丁。
+    brew install git
+
+然后也可以通过查看git版本来查看是否安装成功
+    git --version
+
+这个时候就可以进行下一步的git设置了,下面的命令可以查看目前你的git设置。
+    git config -l
+
+绑定用户和邮箱
+    git config --global user.name <span class="string">"your name"</span>
+    git config --global user.email <span class="string">"your email"</span>
+
+   生成ssh key
+       ssh-keygen -t github_rsa -<span class="constant">C</span> yourmail
+   此时你进入到/<span class="constant">Users</span>/xxx/.ssh目录下，发现有了github_rsa,github_rsa.pub两个文件，你需要做的就是将后缀为.pub文件下的内容添加到个人github下的<span class="constant">SSH</span> <span class="constant">Public</span> <span class="constant">Keys</span>中。
+
+   做完上述内容后可以通过下面的测试语句来验证是否链接成功。
+       ssh git<span class="variable">@github</span>.com
+   如果出现<span class="constant">Hi</span>,xxx的提示，则证明成功了。
+
+   这个时候，在客户端的准备就结束了，我们就可以转移到<span class="constant">Linux</span>服务器上去了。服务器上安装就不做过多介绍了，我是通过yum来装的。
+       yum install git
+
+   之后需要创建一个git用户，设置密码，用来运行git服务。
+       adduer git
+       passwd git 
+
+   最关键的一步就要到了，此时需要将所有要登录的用户的公钥都保存到git用户的authorized_keys下。此时可以将用户的公钥到保存到临时文件下。
+       cd /home/git
+       mkdir .ssh
+       cat /tmp/id_rsa.xxx.pub <span class="prompt">&gt;&gt; </span>~<span class="regexp">/home/git</span><span class="regexp">/.ssh/authorized</span>_keys
+
+
+   作为一个额外的防范措施，你可以用 <span class="constant">Git</span> 自带的 git-shell 简单工具来把 git 用户的活动限制在仅与 <span class="constant">Git</span> 相关。把它设为 git 用户登入的 shell，那么该用户就不能拥有主机正常的 shell 访问权。为了实现这一点，需要指明用户的登入shell 是 git-shell ，而不是 bash 或者 csh。你可能得编辑 /etc/passwd 文件
+       <span class="symbol">git:</span><span class="symbol">x:</span><span class="number">1000</span><span class="symbol">:</span><span class="number">1000</span><span class="symbol">:</span><span class="symbol">:/home/git</span><span class="symbol">:/bin/sh</span>
+       修改成
+       <span class="symbol">git:</span><span class="symbol">x:</span><span class="number">1001</span><span class="symbol">:</span><span class="number">1001</span><span class="symbol">:</span><span class="symbol">:/home/git</span><span class="symbol">:/usr/bin/git-shell</span>
+
+   此时如果输入下面命令，则会强行断开
+       ssh git<span class="variable">@gitserver</span>
+
+   做完这一切之后我们就可以尝试下是否可以clone项目了。
+       cd /srv
+       git init --bare helloworld.git
+       chown -<span class="constant">R</span> <span class="symbol">git:</span>git helloworld.git
+
+   之后切换到客户端，通过下面命令来进行克隆。
+       git clone git<span class="variable">@IP</span><span class="symbol">:/srv/helloworld</span>.git
+
+   如果不出意外，客户端对应的文件就会出现clone的项目啦。
+</code></pre></span>
       
     </div>
 

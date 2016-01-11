@@ -41,7 +41,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/01/11/Linux下搭建Git服务器/index.html">
 <meta property="og:site_name" content="乌托邦">
 <meta property="og:description" content="春风十里，并不如梦想美丽。不怕路长，就怕心老。毕业后一直和一个学弟保持着联系，当时我当社团部长的时候，去招新，其实我的本意是想招他进来的，但是却忘了他的名字。一直都有点后悔。但是，生活却充满喜剧，后来我们通过代码又重新认识了，大学一直都和他合作写项目。现在我又萌生了一个念头，想写一个文艺的阅读网站。第一个版本托管就是想到了github，但是我们却都没有私人的仓库，所有就想到了在Linux下搭建Gi">
-<meta property="og:updated_time" content="2016-01-11T14:55:34.694Z">
+<meta property="og:updated_time" content="2016-01-11T15:00:01.792Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux下搭建Git服务器">
 <meta name="twitter:description" content="春风十里，并不如梦想美丽。不怕路长，就怕心老。毕业后一直和一个学弟保持着联系，当时我当社团部长的时候，去招新，其实我的本意是想招他进来的，但是却忘了他的名字。一直都有点后悔。但是，生活却充满喜剧，后来我们通过代码又重新认识了，大学一直都和他合作写项目。现在我又萌生了一个念头，想写一个文艺的阅读网站。第一个版本托管就是想到了github，但是我们却都没有私人的仓库，所有就想到了在Linux下搭建Gi">
@@ -232,7 +232,7 @@
 <p>这个时候，在客户端的准备就结束了，我们就可以转移到Linux服务器上去了。服务器上安装就不做过多介绍了，我是通过yum来装的。<br>    yum install git</p>
 <p>之后需要创建一个git用户，设置密码，用来运行git服务。<br>    adduer git<br>    passwd git </p>
 <p>最关键的一步就要到了，此时需要将所有要登录的用户的公钥都保存到git用户的authorized_keys下。此时可以将用户的公钥到保存到临时文件下。<br>    cd /home/git<br>    mkdir .ssh<br>    cat /tmp/id_rsa.xxx.pub &gt;&gt; ~/home/git/.ssh/authorized_keys</p>
-<p>作为一个额外的防范措施，你可以用 Git 自带的 git-shell 简单工具来把 git 用户的活动限制在仅与 Git 相关。把它设为 git 用户登入的 shell，那么该用户就不能拥有主机正常的 shell 访问权。为了实现这一点，需要指明用户的登入shell 是 git-shell ，而不是 bash 或者 csh。你可能得编辑 /etc/passwd 文件<br>    git:x:1000:1000::/home/git:/bin/sh<br>  修改成<br>    git:x:1001:1001::/home/git:/usr/bin/git-shell</p>
+<p>作为一个额外的防范措施，你可以用 Git 自带的 git-shell 简单工具来把 git 用户的活动限制在仅与 Git 相关。把它设为 git 用户登入的 shell，那么该用户就不能拥有主机正常的 shell 访问权。为了实现这一点，需要指明用户的登入shell 是 git-shell ，而不是 bash 或者 csh。你可能得编辑 /etc/passwd 文件<br>    git:x:1000:1000::/home/git:/bin/sh<br>    修改成<br>    git:x:1001:1001::/home/git:/usr/bin/git-shell</p>
 <p>此时如果输入下面命令，则会强行断开<br>    ssh git@gitserver</p>
 <p>做完这一切之后我们就可以尝试下是否可以clone项目了。<br>    cd /srv<br>    git init –bare helloworld.git<br>    chown -R git:git helloworld.git</p>
 <p>之后切换到客户端，通过下面命令来进行克隆。<br>    git clone git@IP:/srv/helloworld.git</p>
